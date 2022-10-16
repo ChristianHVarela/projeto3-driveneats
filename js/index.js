@@ -48,9 +48,55 @@ function verificaSeEstaCompleto() {
     botaoFinalizar.classList.add("ready");
     botaoFinalizar.classList.remove("not-ready");
     botaoFinalizar.innerHTML = "Fechar pedido";
+    document.getElementById("button-finalizar").disabled = false;
   } else {
     botaoFinalizar.classList.remove("ready");
     botaoFinalizar.classList.add("not-ready");
     botaoFinalizar.innerHTML = "Selecione os 3 itens para fechar o pedido";
+    document.getElementById("button-finalizar").disabled = true;
   }
+}
+
+function finalizarPedido() {
+  const prato = document.querySelector(
+    ".pratos .selected .subcaixa-pedido .pedido-titulo"
+  ).innerHTML;
+  const bebida = document.querySelector(
+    ".bebidas .selected .subcaixa-pedido .pedido-titulo"
+  ).innerHTML;
+  const doce = document.querySelector(
+    ".doces .selected .subcaixa-pedido .pedido-titulo"
+  ).innerHTML;
+  const pratoValor = desmaskaraValor(
+    document.querySelector(".pratos .selected .subcaixa-pedido .pedido-valor")
+      .innerHTML
+  );
+  const bebidaValor = desmaskaraValor(
+    document.querySelector(".bebidas .selected .subcaixa-pedido .pedido-valor")
+      .innerHTML
+  );
+  const doceValor = desmaskaraValor(
+    document.querySelector(".doces .selected .subcaixa-pedido .pedido-valor")
+      .innerHTML
+  );
+  const valorTotal = somaValores(pratoValor, bebidaValor, doceValor);
+  const url = `https://wa.me/5549991019012?text=`;
+  const urlParameters = encodeURIComponent(`Olá, gostaria de fazer o pedido:
+  - Prato: ${prato}
+  - Bebida: ${bebida}
+  - Sobremesa: ${doce}
+  Total: R$ ${valorTotal}`);
+  window.location.href = url + urlParameters;
+}
+
+function desmaskaraValor(valor) {
+  valor = valor.replace("R$ ", "");
+  valor = valor.replace(",", ".");
+  return valor;
+}
+
+function somaValores(pratoValor, bebidaValor, doceValor) {
+  const somatotal =
+    Number(pratoValor) + Number(bebidaValor) + Number(doceValor);
+  return somatotal.toFixed(2);
 }

@@ -223,7 +223,13 @@
         </div>
       </div>
       <div class="rodape">
-        <button class="rodape-button not-ready">
+        <button
+          class="rodape-button not-ready"
+          data-test="finish-button"
+          id="button-finalizar"
+          onclick="finalizarPedido()"
+          disabled="true"
+        >
           Selecione os 3 itens para fechar o pedido
         </button>
       </div>
