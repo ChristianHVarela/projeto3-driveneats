@@ -109,17 +109,11 @@ body {
   width: 364px;
   height: 61px;
   border-radius: 50px;
-  color: #cbcbcb;
-}
-
-.rodape-button-text {
-  width: 364px;
-  height: 53px;
+  color: #ffffff;
   font-family: "Roboto";
   font-weight: 400;
   font-size: 20px;
   text-align: center;
-  color: #ffffff;
 }
 
 .caixa-pedido {
@@ -137,27 +131,30 @@ body {
 }
 
 .pedido-titulo {
-  width: 100%;
+  width: 80%;
   font-family: "Roboto";
   font-weight: 700;
   font-size: 16px;
   color: #333333;
+  margin-left: 12px;
 }
 
 .pedido-subtitulo {
-  width: 100%;
+  width: 80%;
   font-family: "Roboto";
   font-weight: 300;
   font-size: 15px;
   color: #a6a6a6;
+  margin-left: 12px;
 }
 
 .pedido-valor {
-  width: 100%;
+  width: 80%;
   font-family: "Roboto";
   font-size: 16px;
   font-weight: 400;
   color: #000000;
+  margin-left: 13px;
 }
 
 .caixa-bebida {
@@ -190,4 +187,13 @@ body {
 }
 
 .selected {
+  border: 5px solid #32b72f;
+}
+
+.ready {
+  background-color: #32b72f;
+}
+
+.not-ready {
+  background-color: #cbcbcb;
 }
