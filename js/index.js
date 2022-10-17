@@ -41,9 +41,9 @@ function verificaSeEstaCompleto() {
   const doceSelecionado = document.querySelector(".doces .selected");
   const botaoFinalizar = document.querySelector(".rodape-button");
   if (
-    pratoSelecionado != null &&
-    bebidaSelecionado != null &&
-    doceSelecionado != null
+    pratoSelecionado !== null &&
+    bebidaSelecionado !== null &&
+    doceSelecionado !== null
   ) {
     botaoFinalizar.classList.add("ready");
     botaoFinalizar.classList.remove("not-ready");
